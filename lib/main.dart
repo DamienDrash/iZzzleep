@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:izzzleep/screens/alarm_overview.dart';
-import 'package:izzzleep/screens/daily_sleep_summary.dart';
 import 'package:izzzleep/widgets/drawer/drawer.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: <String, WidgetBuilder>{
         "/screen1": (BuildContext countext) => AlarmOverView(),
-        "/screen2": (BuildContext countext) => DailySleepSummary(),
+        "/screen2": (BuildContext countext) => AlarmOverView(),
       },
       debugShowCheckedModeBanner: false,
       title: 'iZzzleep',
@@ -75,7 +74,7 @@ class _RootPageState extends State<RootPage> {
           ),
           body: IndexedStack(
             index: screen,
-            children: const [DailySleepSummary(), AlarmOverView()],
+            children: const [AlarmOverView(), AlarmOverView()],
           ),
         ),
         if (_showDrawer)
