@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:izzzleep/screens/alarm_overview.dart';
 import 'package:izzzleep/widgets/drawer/drawer.dart';
@@ -13,19 +14,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var _enable = false;
-    return MaterialApp(
-      routes: <String, WidgetBuilder>{
-        "/screen1": (BuildContext countext) => AlarmOverView(),
-        "/screen2": (BuildContext countext) => AlarmOverView(),
-      },
-      debugShowCheckedModeBanner: false,
-      title: 'iZzzleep',
-      home: const Scaffold(
-        body: RootPage(),
-        backgroundColor: Color(0xfff0f0f0),
-      ),
-    );
+    return ScreenUtilInit(
+        designSize: Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: () {
+          return MaterialApp(
+            routes: <String, WidgetBuilder>{
+              "/screen1": (BuildContext countext) => AlarmOverView(),
+              "/screen2": (BuildContext countext) => AlarmOverView(),
+            },
+            debugShowCheckedModeBanner: false,
+            title: 'iZzzleep',
+            home: const Scaffold(
+              body: RootPage(),
+              backgroundColor: Color(0xfff0f0f0),
+            ),
+          );
+        });
   }
 }
 
