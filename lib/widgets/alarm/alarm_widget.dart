@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:neumorphic_container/neumorphic_container.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class AlarmPanel extends StatelessWidget {
@@ -37,122 +37,103 @@ class AlarmPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: () {
-          return Stack(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 50.0.w),
-                child: NeumorphicContainer(
-                  depth: (val) ? 15 : -15,
-                  height: 90.h,
-                  width: 315.w,
-                  borderRadius: 10.sp,
-                  primaryColor: Color(0xfff0f0f0),
-                  curvature: Curvature.flat,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10.0.h, left: 70.w),
-                child: Text(
-                  (clockText.isEmpty) ? "00:00" : clockText,
-                  style: TextStyle(
-                      color: (val) ? Colors.black45 : Colors.black12,
-                      fontSize: 30.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 35.h, left: 295.w),
-                child: NeumorphicSwitch(
-                    style:
-                        NeumorphicSwitchStyle(activeTrackColor: Colors.amber),
-                    isEnabled: true,
-                    height: 25.h,
-                    value: val,
-                    onChanged: (val) {
-                      _handleTap();
-                    }),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 70.w),
-                child: Text(
-                  "M",
-                  style: TextStyle(
-                      color:
-                          (isMondayOn && val) ? Colors.black45 : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 90.w),
-                child: Text(
-                  "T",
-                  style: TextStyle(
-                      color: (isTuesdayOn && val)
-                          ? Colors.black45
-                          : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 110.w),
-                child: Text(
-                  "W",
-                  style: TextStyle(
-                      color: (isWednesdayOn && val)
-                          ? Colors.black45
-                          : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 130.w),
-                child: Text(
-                  "T",
-                  style: TextStyle(
-                      color: (isThursdayOn && val)
-                          ? Colors.black45
-                          : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 150.w),
-                child: Text(
-                  "F",
-                  style: TextStyle(
-                      color:
-                          (isFridayOn && val) ? Colors.black45 : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 170.w),
-                child: Text(
-                  "S",
-                  style: TextStyle(
-                      color: (isSaturdayOn && val)
-                          ? Colors.black45
-                          : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 60.0.h, left: 190.w),
-                child: Text(
-                  "S",
-                  style: TextStyle(
-                      color:
-                          (isSundayOn && val) ? Colors.black45 : Colors.black12,
-                      fontSize: 15.sp),
-                ),
-              )
-            ],
-          );
-        });
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 20.0.w),
+          child: NeumorphicContainer(
+            depth: (val) ? 15 : -15,
+            height: 90.h,
+            width: 315.w,
+            borderRadius: 10,
+            primaryColor: Color(0xfff0f0f0),
+            curvature: Curvature.flat,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 15.0.h, left: 40.w),
+          child: Text(
+            (clockText.isEmpty) ? "00:00" : clockText,
+            style: TextStyle(
+                color: (val) ? Colors.black45 : Colors.black12, fontSize: 30),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 35.h, left: 265.w),
+          child: NeumorphicSwitch(
+              style: NeumorphicSwitchStyle(activeTrackColor: Colors.amber),
+              isEnabled: true,
+              height: 25.h,
+              value: val,
+              onChanged: (val) {
+                _handleTap();
+              }),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 40.w),
+          child: Text(
+            "M",
+            style: TextStyle(
+                color: (isMondayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 60.w),
+          child: Text(
+            "T",
+            style: TextStyle(
+                color: (isTuesdayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 80.w),
+          child: Text(
+            "W",
+            style: TextStyle(
+                color: (isWednesdayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 100.w),
+          child: Text(
+            "T",
+            style: TextStyle(
+                color: (isThursdayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 120.w),
+          child: Text(
+            "F",
+            style: TextStyle(
+                color: (isFridayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 140.w),
+          child: Text(
+            "S",
+            style: TextStyle(
+                color: (isSaturdayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 60.0.h, left: 160.w),
+          child: Text(
+            "S",
+            style: TextStyle(
+                color: (isSundayOn && val) ? Colors.black45 : Colors.black12,
+                fontSize: 15),
+          ),
+        )
+      ],
+    );
   }
 }
 
