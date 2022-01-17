@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:izzzleep/screens/alarm_overview.dart';
-import 'package:izzzleep/screens/test_screen.dart';
+import 'package:izzzleep/screens/daily_screen.dart';
+import 'package:izzzleep/screens/set_alarm_screen.dart';
 import 'package:izzzleep/widgets/drawer/drawer.dart';
 
 void main() {
@@ -80,7 +81,7 @@ class _RootPageState extends State<RootPage> {
           ),
           body: IndexedStack(
             index: screen,
-            children: const [AlarmOverView(), AlarmOverView()],
+            children: const [SetAlarm(), DailySummary(), AlarmOverView()],
           ),
         ),
         if (_showDrawer)
