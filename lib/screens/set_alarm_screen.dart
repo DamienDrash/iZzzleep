@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:izzzleep/widgets/alarm/set_alarm_widget.dart';
+import 'package:izzzleep/widgets/alarm/set_weekdays_widget.dart';
+import 'package:progressive_time_picker/progressive_time_picker.dart';
 
 class SetAlarm extends StatelessWidget {
   const SetAlarm({Key? key}) : super(key: key);
@@ -45,42 +48,9 @@ class SetAlarm extends StatelessWidget {
                           fontFamily: 'Roboto'),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, left: 30, right: 30),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          ),
-                          Placeholder(
-                            fallbackHeight: 25,
-                            fallbackWidth: 25,
-                          )
-                        ],
-                      ),
-                    ),
+                        padding:
+                            const EdgeInsets.only(top: 10, left: 30, right: 30),
+                        child: SetWeekday()),
                     Padding(
                       padding:
                           const EdgeInsets.only(top: 15, left: 50, right: 50),
@@ -96,85 +66,9 @@ class SetAlarm extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 10, left: 50, right: 50),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Wrap(
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                Icon(
-                                  IconData(0xeecb, fontFamily: 'MaterialIcons'),
-                                  color: Colors.black45,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Schlafen",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      color: Colors.black45,
-                                      fontStyle: FontStyle.normal,
-                                      fontFamily: 'Roboto'),
-                                ),
-                              ],
-                            ),
-                            Wrap(
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.access_alarm_outlined,
-                                  color: Colors.black45,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Aufstehen",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      fontSize: 15.sp,
-                                      color: Colors.black45,
-                                      fontStyle: FontStyle.normal,
-                                      fontFamily: 'Roboto'),
-                                ),
-                              ],
-                            )
-                          ]),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 2, left: 50, right: 50),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("22:15",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 30.sp,
-                                  color: Colors.black45,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: 'Roboto')),
-                          Text("6:30",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 30.sp,
-                                  color: Colors.black45,
-                                  fontStyle: FontStyle.normal,
-                                  fontFamily: 'Roboto'))
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 8, left: 50, right: 50),
-                      child: Placeholder(
-                        fallbackHeight: 300,
-                      ),
-                    ),
+                        padding:
+                            const EdgeInsets.only(top: 8, left: 50, right: 50),
+                        child: SetAlarmWidget()),
                     SizedBox(
                       height: 20,
                     ),
@@ -208,6 +102,8 @@ class SetAlarm extends StatelessWidget {
                         min: 0,
                         max: 100,
                         value: 30,
+                        style: SliderStyle(
+                            variant: Colors.amber, accent: Colors.amber),
                       ),
                     )
                   ],
