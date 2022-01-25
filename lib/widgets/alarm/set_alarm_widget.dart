@@ -28,9 +28,10 @@ class _SetAlarmWidgetState extends State<SetAlarmWidget> {
         init: _inBedTime, end: _outBedTime, clockTimeFormat: _clockTimeFormat);
   }
 
+  @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(360, 690),
+        designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: () {
@@ -44,11 +45,11 @@ class _SetAlarmWidgetState extends State<SetAlarmWidget> {
                       Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             IconData(0xeecb, fontFamily: 'MaterialIcons'),
                             color: Colors.black45,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -65,11 +66,11 @@ class _SetAlarmWidgetState extends State<SetAlarmWidget> {
                       Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.access_alarm_outlined,
                             color: Colors.black45,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -132,7 +133,7 @@ class _SetAlarmWidgetState extends State<SetAlarmWidget> {
                     color: Colors.grey[200]!,
                     shape: BoxShape.circle,
                     radius: 12.0,
-                    icon: Icon(
+                    icon: const Icon(
                       IconData(0xeecb, fontFamily: 'MaterialIcons'),
                       color: Colors.amber,
                       size: 20,
@@ -142,7 +143,7 @@ class _SetAlarmWidgetState extends State<SetAlarmWidget> {
                     color: Colors.grey[200]!,
                     shape: BoxShape.circle,
                     radius: 12.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.access_alarm_outlined,
                       color: Colors.amber,
                       size: 20,

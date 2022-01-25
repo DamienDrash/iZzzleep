@@ -1,18 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:izzzleep/widgets/alarm/set_alarm_widget.dart';
 import 'package:izzzleep/widgets/alarm/set_weekdays_widget.dart';
-import 'package:progressive_time_picker/progressive_time_picker.dart';
 
-class SetAlarm extends StatelessWidget {
+class SetAlarm extends StatefulWidget {
   const SetAlarm({Key? key}) : super(key: key);
-  final bool val = true;
 
   @override
+  _SetAlarmState createState() => _SetAlarmState();
+}
+
+class _SetAlarmState extends State<SetAlarm> {
+  @override
+  double seekValue = 30;
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(360, 690),
+        designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: () {
@@ -26,14 +29,13 @@ class SetAlarm extends StatelessWidget {
                       color: Colors.black45,
                       fontStyle: FontStyle.normal,
                       fontFamily: 'Roboto')),
-              backgroundColor: Color(0xfff0f0f0),
-              toolbarHeight: 30,
+              backgroundColor: const Color(0xfff0f0f0),
+              toolbarHeight: 30.h,
             ),
             body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 0.w),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,32 +51,18 @@ class SetAlarm extends StatelessWidget {
                     ),
                     Padding(
                         padding:
-                            const EdgeInsets.only(top: 10, left: 30, right: 30),
-                        child: SetWeekday()),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 15, left: 50, right: 50),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: NeumorphicSwitch(
-                            style: NeumorphicSwitchStyle(
-                                activeTrackColor: Colors.amber),
-                            isEnabled: true,
-                            height: 25.h,
-                            value: val,
-                            onChanged: (val) {}),
-                      ),
-                    ),
+                            EdgeInsets.only(top: 10.h, left: 30.w, right: 30.w),
+                        child: const SetWeekday()),
                     Padding(
                         padding:
-                            const EdgeInsets.only(top: 8, left: 50, right: 50),
-                        child: SetAlarmWidget()),
+                            EdgeInsets.only(top: 8.h, left: 30.w, right: 30.w),
+                        child: const SetAlarmWidget()),
                     SizedBox(
-                      height: 20,
+                      height: 20.h,
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 2, left: 50, right: 50),
+                          EdgeInsets.only(top: 2.h, left: 30.w, right: 30.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -97,13 +85,20 @@ class SetAlarm extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 2, left: 50, right: 50),
+                          EdgeInsets.only(top: 2.h, left: 30.w, right: 30.w),
                       child: NeumorphicSlider(
                         min: 0,
                         max: 100,
-                        value: 30,
+                        value: seekValue,
+                        onChanged: (value) {
+                          setState(() {
+                            seekValue = value;
+                          });
+                        },
                         style: SliderStyle(
-                            variant: Colors.amber, accent: Colors.amber),
+                            depth: -3,
+                            variant: Colors.amber,
+                            accent: Colors.amber[300]),
                       ),
                     )
                   ],

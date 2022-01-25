@@ -8,8 +8,8 @@ class DrawerUser extends StatefulWidget {
     required this.isCollapsed,
   }) : super(key: key);
   final bool isCollapsed;
-  final String beforeCollapse;
-  final String afterCollapse;
+  final Widget beforeCollapse;
+  final Widget afterCollapse;
   @override
   _DrawerUserState createState() => _DrawerUserState();
 }
@@ -38,12 +38,9 @@ class _DrawerUserState extends State<DrawerUser> {
       ),
       child: Center(
         child: FittedBox(
-          child: Text(
-            (widget.isCollapsed) ? widget.afterCollapse : widget.beforeCollapse,
-            style: TextStyle(
-              color: Colors.black45,
-            ),
-          ),
+          child: (widget.isCollapsed)
+              ? widget.afterCollapse
+              : widget.beforeCollapse,
         ),
       ),
     );

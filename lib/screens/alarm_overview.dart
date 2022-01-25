@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:izzzleep/widgets/alarm/alarm_tile.dart';
 
-class AlarmOverView extends StatelessWidget {
+class AlarmOverView extends StatefulWidget {
   const AlarmOverView({Key? key}) : super(key: key);
 
+  @override
+  _AlarmOverViewState createState() => _AlarmOverViewState();
+}
+
+class _AlarmOverViewState extends State<AlarmOverView> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -14,6 +20,15 @@ class AlarmOverView extends StatelessWidget {
         builder: () {
           return Scaffold(
             backgroundColor: Colors.grey[200],
+            floatingActionButton: Padding(
+              padding: EdgeInsets.only(bottom: 15.0.h, right: 5.w),
+              child: FloatingActionButton(
+                onPressed: () {},
+                tooltip: 'Add alarm',
+                backgroundColor: Colors.amber,
+                child: const Icon(Icons.add),
+              ),
+            ),
             body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
@@ -77,12 +92,6 @@ class AlarmOverView extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {},
-              tooltip: 'Add alarm',
-              backgroundColor: Colors.amber,
-              child: const Icon(Icons.add),
             ),
           );
         });
